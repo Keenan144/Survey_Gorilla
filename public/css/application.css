@@ -1,0 +1,32 @@
+.index_main_body{
+  position: absolute;
+  top: 150px;
+  left: 10px;
+  /*background-color: tan;*/
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+
+a:link {
+    color: green;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: maroon;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: navy;
+    text-decoration: none;
+}

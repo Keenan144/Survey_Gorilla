@@ -11,14 +11,34 @@
 
 
 <body>
-  <div clas="index_main_body">
+  <div class="index_main_body">
     <!-- this needs to be a form -->
     <!-- ----------------------- -->
-    <p><a href="/login"> EMAIL </a></p>
+
+    <form action='/login' method="post">
+      Email: <input type="text" name="email" placeholder="keenan@keenan.com">
+      <br><br>
+      Password: <input type="password" name="password" placeholder="******">
+      <br><br>
+      <input type="submit" value="Log in!">
+    </form>
+    <br><br><br>
+    <form action='/register' method="post">
+      Enter Your Email: <input type="text" name="user_name" placeholder="User Name">
+      <br><br>
+      Choose a Password: <input type="password" name="password" placeholder="Password">
+      <br><br>
+      <!-- What's your Name: <input type="text" name="name" placeholder="John Doe">
+      <br><br> -->
+      <input type="submit" value="Register!">
+    </form>
+
+
+    <!-- <p><a href="/login"> EMAIL </a></p>
     <p><a href="/login"> PASSWORD </a></p>
     <hr>
     <p><a href="/register"> REGISTER </a></p>
     <p><a href="/login"> LOGIN </a></p>
-    <hr>
+    <hr> -->
   </div>
 </body>

@@ -37,11 +37,20 @@ end
 
 get "/login" do 
   # go to login page
-  erb :login
+  erb :index
 end
 
 post "/login" do
   # find user with that login 
+    @user = User.find_by(email: params[:email])
+ if @user != nil #&& @user.authenticate(params[:password])
+      #session_set_current_user(@user)
+      #redirect to their profile page
+      redirect('/profile')
+  else
+  erb :login
+ end
+
 end
 
 # ---------------------------- #
@@ -54,5 +63,12 @@ end
 
 post "/register" do
   # create a new user with the params
+  @new_user = User.create(email: params[:email], password: params[:password])
+  if @new_user   #.valid?
+      session_set_current_user(@new_user)
+      redirect('/profile')
+  else
+    erb :index
+  end
 end
 # ------------------------------- #

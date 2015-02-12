@@ -44,7 +44,7 @@ post "/login" do
   # find user with that login 
     @user = User.find_by(email: params[:email])
  if @user != nil #&& @user.authenticate(params[:password])
-      #session_set_current_user(@user)
+      # session_set_current_user(@user)
       #redirect to their profile page
       redirect('/profile')
   else

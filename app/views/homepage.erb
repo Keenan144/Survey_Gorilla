@@ -1,0 +1,28 @@
+<title>Welcome to Squirrel Monkey</title>
+
+<head>
+<div class="homepage">
+  <h1><strong>Create a Survey</strong></h1>
+  <h2>Welcome <%= User.find(session_current_user_id).email%></h2>
+  <form action="/survey" method="post">
+
+
+
+  </form>
+
+
+</div>
+
+<div class="homepage">
+  <h1>Find a Survey to Take</h1>
+  <%allsurveys = Survey.all %>
+    <% allsurveys.each do |survey| %>
+    <p><a href="/survey/<%=survey.id%>"></p></a>
+    <%end%>
+
+
+</div>
+
+
+
+</head>

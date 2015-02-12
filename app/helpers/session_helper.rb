@@ -26,8 +26,8 @@ helpers do
     @current_user = user
   end
 
-  def session_authenticate name, password
-    candidate = User.find_by(:name => name)
+  def session_authenticate email, password
+    candidate = User.find_by(:email => email)
     if !candidate.blank?
 
       if candidate.password_hash.blank?

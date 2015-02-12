@@ -10,7 +10,7 @@ def seed_survey(count, id)
 end
 
 def seed_questions(count, id)
-  count.times {Question.create(title: Faker::Lorem.words(4) + "?", survey_id: id)}
+  count.times {Question.create(title: Faker::Lorem.words(4).join("") + "?", survey_id: id)}
 end
 
 def seed_responses(count, id)

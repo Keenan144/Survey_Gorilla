@@ -11,9 +11,11 @@ h3 {
   margin: auto;
 }
 .pageContent{
+  position: fixed;
+  width: 600px;
   text-align: center;
   border: 1px ridge black;
-  margin: 40px;
+  margin-left: 650px;
   -webkit-column-count: 2;
   -moz-column-count: 2;
   -column-count: 2;

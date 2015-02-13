@@ -2,6 +2,7 @@
 
 get "/" do 
   # index
+  puts "HIIII"
   erb :index
 end
 
@@ -14,10 +15,11 @@ post "/survey" do
   # create
 end
 
-get "survey/:id" do
+#get "survey/:id" do
   # show
-  erb :single_survey
-end
+#  puts "Hello world"
+#  erb :single_survey
+#end
 
 get "survey/:id/edit" do 
   #edit

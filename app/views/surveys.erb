@@ -1,0 +1,6 @@
+  <div>
+      <% @survey.reverse.each do |survey| %>
+      <ul>
+        <li><a href="/survey/<%=survey.id%>"><%= survey.title %> </a></li> </ul>
+      <% end %>
+    </div>

@@ -1,0 +1,17 @@
+<div>
+  <h2> Single question: </h2> 
+  <br><em> <%= @question.title %> </em>
+</div>
+
+
+<div class="add_question">
+  <form action="/survey/<%= @survey.id %>/questions/<%= @question.id %>/response" method="post">
+    What is the response:
+    <br>
+    <input type="text" name="answer">
+    <br>
+    <br>
+    <input type="submit" value="submit">
+  </form>
+</div>
+

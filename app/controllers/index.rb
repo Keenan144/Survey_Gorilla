@@ -5,33 +5,105 @@ get "/" do
   erb :index
 end
 
+get "/surveys" do 
+  @survey = Survey.all
+
+  erb :surveys
+end
+
+
 get "/survey/new" do
   # new
   erb :new_survey
 end
 
+
+
 post "/survey" do 
   # create
+  @survey = Survey.create(title: params[:title])
+  @id = @survey.id
+  p @id
+  redirect "/surveys"
 end
 
-get "survey/:id" do
-  # show
+get "/survey/:id" do
+  @survey = Survey.find(params[:id])
   erb :single_survey
 end
 
-get "survey/:id/edit" do 
+
+post "/survey/:id/questions" do 
+  @survey = Survey.find(params[:id])
+  @question = @survey.questions.create(title: params[:title])
+
+  redirect "/survey/#{@survey.id}"
+end
+
+get "/survey/:s_id/questions/:id" do 
+  @survey = Survey.find(params[:s_id])
+  @question = Question.find(params[:id])
+  
+  erb :single_question
+end
+
+
+post "/survey/:s_id/questions/:q_id/response" do 
+  @survey = Survey.find(params[:s_id])
+  @question = Question.find(params[:q_id])
+  @resp = @question.responses.create(answer: params[:answer])
+
+  str = params[:s_id].to_s
+ # puts str
+  redirect "/survey/#{str}"
+end
+
+get "/survey/:s_id/questions/:q_id/response/:id" do
+  @survey = Survey.find(params[:s_id])
+  @question = Question.find(params[:q_id])
+  @response = Response.find(params[:id])
+
+
+  erb :single_question
+end
+# get "/questions" do 
+#   @question = Question.all
+#   erb :questions
+# end
+
+
+get "/survey/:id/edit" do 
   #edit
   erb :edit_survey
 end
 
-put "survey/:id" do 
+put "/survey/:id" do 
   # update
 end
 
-delete "survey/:id" do
+delete "/survey/:id" do
   # delete
 end
 # -------------------------------------- #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # --------  login ------------ #
 

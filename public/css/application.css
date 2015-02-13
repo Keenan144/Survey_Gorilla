@@ -8,6 +8,25 @@
 }
 
 
+.right_nav_bar{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.right_nav_bar_2{
+  position: absolute;
+  top: 25px;
+  right: 8px;
+}
+
+.add_question{
+  padding: 20px;
+  
+}
+
+
+
 a:link {
     color: green;
     text-decoration: none;

@@ -1,10 +1,10 @@
-get "/survey/:id" do 
+get "/survey/:id/take" do 
 	puts "Trying to edit/view survey ##{params[:id]}"
 	survey = Survey.find(params[:id])
 	@survey_name = survey.title
 	@questions = survey.questions
 	@id = params[:id].to_s
-	erb :single_survey
+	erb :take_survey
 end
 
 post "/survey/:id/submit" do

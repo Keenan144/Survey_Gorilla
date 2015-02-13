@@ -1,4 +1,6 @@
 get "/survey/:id/take" do 
+	redirect to("/") if !session_logged_in?
+
 	puts "Trying to edit/view survey ##{params[:id]}"
 	survey = Survey.find(params[:id])
 	@survey_name = survey.title
@@ -8,6 +10,8 @@ get "/survey/:id/take" do
 end
 
 post "/survey/:id/take/submit" do
+	redirect to("/") if !session_logged_in?
+
 	survey = Survey.find(params[:id])
 	puts "Submitting survey: " + survey.title
 	puts "=" * 30
@@ -31,6 +35,8 @@ post "/survey/:id/take/submit" do
 end
 
 get "/survey/:id/take/finished" do
+	redirect to("/") if !session_logged_in?
+
 	@url = "/survey/#{params[:id]}/results"
 	@survey_title = Survey.find(params[:id]).title
 	erb :survey_finished
@@ -48,7 +54,7 @@ get "/survey/:id/results" do
 			@total_votes += response.count if response.count != nil
 		end
 	end
-	@total_votes /= @questions.count 
+	@total_votes /= @questions.count # total number of VOTERS, now, not just VOTES
 	erb :survey_results	
 end
 

@@ -1,5 +1,6 @@
 # ---------- 7 restful routes ------------#
 
+
 get "/logout" do
   session_logout
   redirect ('/')
@@ -7,7 +8,7 @@ end
 
 get "/" do
   # index
-  erb :index
+  # erb :index
   if session_logged_in?
     erb :homepage
   else
@@ -25,7 +26,8 @@ post "/homepage" do
   erb :homepage
 end
 
-get "/surveys" do 
+get "/surveys" do
+  redirect to("/") if !session_logged_in?
   @survey = Survey.all
 
   erb :surveys
@@ -34,12 +36,14 @@ end
 
 get "/survey/new" do
   # new
+  redirect to("/") if !session_logged_in?
   erb :new_survey
 end
 
 
 
-post "/survey" do 
+post "/survey" do
+  redirect to("/") if !session_logged_in?
   # create
   @survey = Survey.create(title: params[:title])
   @id = @survey.id
@@ -53,37 +57,42 @@ end
 #  erb :single_survey
 #end
 get "/survey/:id" do
+  redirect to("/") if !session_logged_in?
   @survey = Survey.find(params[:id])
   erb :single_survey
 end
 
 
-post "/survey/:id/questions" do 
+post "/survey/:id/questions" do
+  redirect to("/") if !session_logged_in?
   @survey = Survey.find(params[:id])
   @question = @survey.questions.create(title: params[:title])
 
   redirect "/survey/#{@survey.id}"
 end
 
-get "/survey/:s_id/questions/:id" do 
+get "/survey/:s_id/questions/:id" do
+  redirect to("/") if !session_logged_in?
   @survey = Survey.find(params[:s_id])
   @question = Question.find(params[:id])
-  
+
   erb :single_question
 end
 
 
-post "/survey/:s_id/questions/:q_id/response" do 
+post "/survey/:s_id/questions/:q_id/response" do
+  redirect to("/") if !session_logged_in?
   @survey = Survey.find(params[:s_id])
   @question = Question.find(params[:q_id])
   @resp = @question.responses.create(answer: params[:answer])
 
   str = params[:s_id].to_s
  # puts str
-  redirect "/survey/#{str}"
+ redirect "/survey/#{str}"
 end
 
 get "/survey/:s_id/questions/:q_id/response/:id" do
+  redirect to("/") if !session_logged_in?
   @survey = Survey.find(params[:s_id])
   @question = Question.find(params[:q_id])
   @response = Response.find(params[:id])
@@ -91,18 +100,19 @@ get "/survey/:s_id/questions/:q_id/response/:id" do
 
   erb :single_question
 end
-# get "/questions" do 
+# get "/questions" do
 #   @question = Question.all
 #   erb :questions
 # end
 
 
-get "/survey/:id/edit" do 
+get "/survey/:id/edit" do
+  redirect to("/") if !session_logged_in?
   #edit
   erb :edit_survey
 end
 
-put "/survey/:id" do 
+put "/survey/:id" do
   # update
 end
 
@@ -120,10 +130,11 @@ end
 
 # --------  login ------------ #
 
-get "/login" do
-  # go to login page
-  erb :index
-end
+# get "/login" do
+#   # go to login page
+#   puts "GET LOGIN"
+#   erb :index
+# end
 
 post "/login" do
   # find user with that login
@@ -131,15 +142,17 @@ post "/login" do
   puts "printing username: #{params[:email]}"
   puts "printing pw: #{params[:password]}"
   session_authenticate params[:email], params[:password]
- if @user != nil #&& @user.authenticate(params[:password])
-      # session_set_current_user(@user)
-      #redirect to their profile page
-      redirect('/')
-    else
-      #erb :login
-    end
-
+  if @user #&& @user.authenticate(params[:password])
+    session_set_current_user(@user)
+    puts "Login success"
+    redirect('/')
+  else
+    puts "Error"
+    session[:errors] = 'invalid login credentials'
+    redirect('/')
   end
+
+end
 
 # ---------------------------- #
 
@@ -152,9 +165,9 @@ end
 post "/register" do
   # create a new user with the params
   @new_user = User.create(email: params[:email], password: params[:password])
-  if @new_user   #.valid?
+  if @new_user.valid?
     session_set_current_user(@new_user)
-    redirect('/profile')
+    redirect('/')
   else
     erb :index
   end

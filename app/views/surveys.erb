@@ -1,6 +1,10 @@
-  <div>
+  <div id="surveytable">
+    <h1>Find a Survey to Take</h1>
+    <div class="pageContent">
       <% @survey.reverse.each do |survey| %>
       <ul>
-        <li><a href="/survey/<%=survey.id%>"><%= survey.title %> </a></li> </ul>
+        <li><a class="surveylinks" href="/survey/<%=survey.id%>"><%= survey.title %> </a></li> </ul>
       <% end %>
+  </div>
     </div>
+

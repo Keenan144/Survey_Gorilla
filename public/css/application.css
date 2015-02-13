@@ -1,4 +1,5 @@
 * { box-sizing: border-box; }
+
 html {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -10,18 +11,17 @@ h1 {
 h3 {
   margin: auto;
 }
-.showsurvey{
+.pageContent{
+  position: fixed;
+  width: 600px;
   text-align: center;
   border: 1px ridge black;
-  margin: 100px;
+  margin-left: 650px;
   -webkit-column-count: 2;
   -moz-column-count: 2;
   -column-count: 2;
 }
 
-#surveytable {
-  text-align: center;
-}
 
 .navbar {
   background-color: #2B7092;
@@ -59,11 +59,11 @@ li {
   position: absolute;
   top: 150px;
   left: 10px;
-  /*background-color: tan;*/
   padding: 20px;
   font-family: sans-serif;
 }
 
+<<<<<<< HEAD
 
 .surveylinks:link {
     color: #2AA560;
@@ -83,10 +83,7 @@ li {
 
 .add_question{
   padding: 20px;
-  
 }
-
-
 
 a:link {
     color: green;
@@ -94,23 +91,17 @@ a:link {
 }
 
  /*visited link */
-.surveylinks:visited {
-    color: #E75F3B;
-    text-decoration: none;
+#surveytable .surveylinks {
+    color: #2B7092;
+ }
+#surveytable .surveylinks:visited {
+    color: orange;
 }
 
- /*mouse over link */
-.surveylinks:hover {
-    color: #D58C21;
-    text-decoration: none;
+ /*mouse over link*/
+#surveytable .surveylinks:hover {
+    color: #2AA560;
 }
-
- /*selected link */
-.surveylinks:active {
-    color: navy;
-    text-decoration: none;
-}
-
 
 
 /* VIEW SURVEY STUFF */
@@ -150,4 +141,10 @@ a:link {
 	margin-top: 5px;
 	float: left;
 }
+
+.errors {
+  color:red;
+}
+
+
 

@@ -1,0 +1,10 @@
+<h1>Thank you for completeing the '<%=@survey_title%>' survey. You will redirect shortly</h1>
+
+
+<script>
+	$(document).ready(function() {
+		setTimeout(function() {
+			window.location.replace("<%=@url%>")
+		}, 2000);
+	});
+</script>

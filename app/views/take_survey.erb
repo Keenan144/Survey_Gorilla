@@ -1,6 +1,6 @@
 <h1 class="view_survey_title">Take the '<%=@survey_name%>'</h1>
 
-<form action="/survey/<%=@id%>/submit" method="post">
+<form action="/survey/<%=@id%>/take/submit" method="post">
 <% @questions.each do |question| %>
  <div class="question_container">
   <p class="question_text"><%= question.title%></p>

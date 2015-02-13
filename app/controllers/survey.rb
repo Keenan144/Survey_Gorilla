@@ -7,13 +7,12 @@ get "/survey/:id/take" do
 	erb :take_survey
 end
 
-post "/survey/:id/submit" do
+post "/survey/:id/take/submit" do
 	survey = Survey.find(params[:id])
 	puts "Submitting survey: " + survey.title
 	puts "=" * 30
 	5.times {puts}
 
-	#puts params[:quianumquamipsumexplicabo_button]
 	survey.questions.each do |question|
 		question_text = question.title.chop + "_button"
 		response_text = params[question_text.to_sym]
@@ -28,6 +27,15 @@ post "/survey/:id/submit" do
 			response.update(count: curCount+1)
 		end
 	end
-	puts "HI!"
-	return 
+	redirect "/survey/#{params[:id]}/take/finished"
 end
+
+get "/survey/:id/take/finished" do
+	@url = "/"
+	@survey_title = Survey.find(params[:id]).title
+	erb :survey_finished
+end
+
+
+
+

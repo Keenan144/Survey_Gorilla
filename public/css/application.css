@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 * { box-sizing: border-box; }
-=======
 html {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -56,7 +54,6 @@ li {
 .navbar .navbar_link:hover {
     background-color: #2AA560;
 }
->>>>>>> 2c0f340f4ec5c8adae1f7a6ba7594f74fab02e9a
 
 .index_main_body{
   position: absolute;
@@ -68,11 +65,10 @@ li {
 }
 
 
-<<<<<<< HEAD
- .surveylinks:link {
+.surveylinks:link {
     color: #2AA560;
-=======
-<<<<<<< HEAD
+}
+
 .right_nav_bar{
   position: absolute;
   top: 8px;
@@ -93,11 +89,7 @@ li {
 
 
 a:link {
-=======
- a:link {
->>>>>>> 2c0f340f4ec5c8adae1f7a6ba7594f74fab02e9a
     color: green;
->>>>>>> fb7ec9913f998b7875aea45e5852fb7bbc62624c
     text-decoration: none;
 }
 
@@ -118,10 +110,6 @@ a:link {
     color: navy;
     text-decoration: none;
 }
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
 
 
 
@@ -146,20 +134,20 @@ a:link {
 
 .response_list_item {
 	margin-bottom: 3px;
-	display: inline;
 }
 
 .response_div {
 	width: 200px;
 	margin-bottom: 5px;
+	display: table;
+	margin-left: 10px;
+	height: 25px;
 }
 
 .response_radio_button {
 	margin-left: 3px;
+	margin-right: 5px;
+	margin-top: 5px;
+	float: left;
 }
 
-
-
-=======
->>>>>>> 2c0f340f4ec5c8adae1f7a6ba7594f74fab02e9a
->>>>>>> fb7ec9913f998b7875aea45e5852fb7bbc62624c

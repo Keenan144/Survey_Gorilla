@@ -1,0 +1,19 @@
+<h1 class="view_survey_title">Results for Survey: '<%=@title%>'</h1>
+<h2><%=@total_votes%> total voters!</h2>
+
+<% @questions.order(:title).each do |question| %>
+	<div class = "question_container">
+		<p class="question_text"><%= question.title %></p>
+		<ul class="response_list">
+		<% question.responses.order(:answer).each do |response| %>
+			<div class="response_div">
+				<li class="response_list_item"><%= response.count.to_i %> - <%= response.answer %></li>
+			</div>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
+
+
+
+

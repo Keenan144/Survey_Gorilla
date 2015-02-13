@@ -31,10 +31,27 @@ post "/survey/:id/take/submit" do
 end
 
 get "/survey/:id/take/finished" do
-	@url = "/"
+	@url = "/survey/#{params[:id]}/results"
 	@survey_title = Survey.find(params[:id]).title
 	erb :survey_finished
 end
+
+
+get "/survey/:id/results" do
+	id = params[:id]
+	survey = Survey.find(id)
+	@title = survey.title
+	@questions = survey.questions
+	@total_votes = 0
+	@questions.each do |question|
+		question.responses.each do |response|
+			@total_votes += response.count if response.count != nil
+		end
+	end
+	@total_votes /= @questions.count 
+	erb :survey_results	
+end
+
 
 
 

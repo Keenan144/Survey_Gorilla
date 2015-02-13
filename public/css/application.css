@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-* { box-sizing: border-box; }
-=======
+
 html {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -12,18 +10,15 @@ h1 {
 h3 {
   margin: auto;
 }
-.showsurvey{
+.pageContent{
   text-align: center;
   border: 1px ridge black;
-  margin: 100px;
+  margin: 40px;
   -webkit-column-count: 2;
   -moz-column-count: 2;
   -column-count: 2;
 }
 
-#surveytable {
-  text-align: center;
-}
 
 .navbar {
   background-color: #2B7092;
@@ -56,72 +51,33 @@ li {
 .navbar .navbar_link:hover {
     background-color: #2AA560;
 }
->>>>>>> 2c0f340f4ec5c8adae1f7a6ba7594f74fab02e9a
 
 .index_main_body{
   position: absolute;
   top: 150px;
   left: 10px;
-  /*background-color: tan;*/
   padding: 20px;
   font-family: sans-serif;
 }
 
-
-<<<<<<< HEAD
- .surveylinks:link {
-    color: #2AA560;
-=======
-<<<<<<< HEAD
-.right_nav_bar{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-}
-
-.right_nav_bar_2{
-  position: absolute;
-  top: 25px;
-  right: 8px;
-}
-
 .add_question{
   padding: 20px;
-  
-}
 
-
-
-a:link {
-=======
- a:link {
->>>>>>> 2c0f340f4ec5c8adae1f7a6ba7594f74fab02e9a
-    color: green;
->>>>>>> fb7ec9913f998b7875aea45e5852fb7bbc62624c
-    text-decoration: none;
 }
 
  /*visited link */
-.surveylinks:visited {
-    color: #E75F3B;
-    text-decoration: none;
+ #surveytable .surveylinks {
+    color: #2B7092;
+  }
+#surveytable .surveylinks:visited {
+    color: orange;
 }
 
- /*mouse over link */
-.surveylinks:hover {
-    color: #D58C21;
-    text-decoration: none;
+ /*mouse over link*/
+#surveytable .surveylinks:hover {
+    color: #2AA560;
 }
 
- /*selected link */
-.surveylinks:active {
-    color: navy;
-    text-decoration: none;
-}
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
 
 
 
@@ -160,6 +116,7 @@ a:link {
 
 
 
-=======
->>>>>>> 2c0f340f4ec5c8adae1f7a6ba7594f74fab02e9a
->>>>>>> fb7ec9913f998b7875aea45e5852fb7bbc62624c
+
+
+
+

@@ -1,0 +1,19 @@
+<h1 class="view_survey_title">Take the '<%=@survey_name%>'</h1>
+
+<form action="/survey/<%=@id%>/submit" method="post">
+<% @questions.each do |question| %>
+ <div class="question_container">
+  <p class="question_text"><%= question.title%></p>
+  <ul class="response_list">
+   <% question.responses.each do |response| %>
+    <div class="response_div">
+     <input class="response_radio_button" type="radio" name="<%=question.title.chop%>_button" value=<%=response.answer%>>
+     <li class="response_list_item"><%= response.answer %></li>
+    </div>
+   <% end %>
+  </ul>
+ </div>
+<% end %>
+
+ <input type="submit" value="Submit." name="submit_button">
+</form>

@@ -2,20 +2,112 @@
 
 <head>
   <h3>Welcome <%= User.find(session_current_user_id).email%></h3>
-<div class="createsurvey">
-  <h1><strong>Create a Survey</strong></h1>
+  <div class="pageHeader">
+    <h1><strong>Create a Survey</strong></h1>
  <!--  <form action="/survey" method="post">
-  </form> -->
+</form> -->
 
 
 </div>
 
-<div class="showsurvey">
+<div class="pageContent">
   <h1>Find a Survey to Take</h1>
-  <%allsurveys = Survey.all %>
+  <div id="surveytable">
+    <%allsurveys = Survey.all %>
     <% allsurveys.each do |survey| %>
-<p><a href="/survey/<%=survey.title%>"><%=survey.title%></p></a>
+    <p><a class="surveylinks" href="/survey/<%=survey.id%>"><%=survey.title%></p></a>
     <%end%>
+  </div>
+
+<div class="blended_grid">
+<div class="pageHeader">
+</div>
+<div class="pageLeftMenu">
+</div>
+<div class="pageContent">
+</div>
+<div class="pageFooter">
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+*{
+padding : 0;
+margin : 0;
+border : 0;
+}
+body{
+background-image : url(' bi-background-frame.png ');
+background-attachment : fixed;
+background-size : 100% auto;
+}
+.blended_grid{
+display : block;
+width : 900px;
+overflow : auto;
+margin : 30px auto 0 auto;
+}
+.pageHeader{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 200px;
+width : 900px;
+}
+.pageLeftMenu{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 200px;
+}
+.pageContent{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 700px;
+}
+.pageFooter{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 100px;
+width : 900px;
+}
+.pageHeader{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 200px;
+width : 900px;
+}
+.pageLeftMenu{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 200px;
+}
+.pageContent{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 700px;
+}
+.pageFooter{
+background-color : rgba(0, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 100px;
+width : 900px;
+}
+
 
 
 </div>

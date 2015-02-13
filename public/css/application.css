@@ -13,9 +13,13 @@ h3 {
   text-align: center;
   border: 1px ridge black;
   margin: 100px;
-/*  -webkit-column-count: 2;
+  -webkit-column-count: 2;
   -moz-column-count: 2;
-  -column-count: 2;*/
+  -column-count: 2;
+}
+
+#surveytable {
+  text-align: center;
 }
 
 .navbar {
@@ -34,7 +38,7 @@ li {
     float: left;
 }
 
-.navbar a:link, a:visited {
+.navbar .navbar_link:link {
     display: block;
     width: 120px;
     font-weight: bold;
@@ -46,7 +50,7 @@ li {
     text-transform: uppercase;
 }
 
-.navbar a:hover, a:active {
+.navbar .navbar_link:hover {
     background-color: #2AA560;
 }
 
@@ -60,25 +64,26 @@ li {
 }
 
 
- a:link {
+ .surveylinks:link {
     color: #2AA560;
     text-decoration: none;
 }
 
-/* visited link */
-a:visited {
+ /*visited link */
+.surveylinks:visited {
     color: #E75F3B;
     text-decoration: none;
 }
 
-/* mouse over link */
-a:hover {
+ /*mouse over link */
+.surveylinks:hover {
     color: #D58C21;
     text-decoration: none;
 }
 
-/* selected link */
-a:active {
+ /*selected link */
+.surveylinks:active {
     color: navy;
     text-decoration: none;
 }
+

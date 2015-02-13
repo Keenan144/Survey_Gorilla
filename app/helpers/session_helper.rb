@@ -41,5 +41,10 @@ helpers do
       false # stuff
     end
   end
+
+  def display_login_errors_if_any?
+    error_message = session.has_key?(:errors) ? session.delete(:errors) : nil
+    "<div class='errors'>#{error_message}</div>"
+  end
 end
 

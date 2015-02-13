@@ -116,7 +116,9 @@ li {
 	margin-left: 3px;
 }
 
-
+.errors {
+  color:red;
+}
 
 
 

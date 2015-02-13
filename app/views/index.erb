@@ -15,6 +15,7 @@
     <!-- ----------------------- -->
 
     <form action='/login' method="post">
+      <%= display_login_errors_if_any? %>
       Email: <input type="text" name="email" placeholder="keenan@keenan.com">
       <br><br>
       Password: <input type="password" name="password" placeholder="******">
@@ -30,9 +31,8 @@
       What's your Name: <input type="text" name="name" placeholder="John Doe">
       <br><br>
       <input type="submit" value="Register!">
-    </form> 
-
-
+    </form>
+</div>
 
 
     <!-- <p><a href="/login"> EMAIL </a></p>

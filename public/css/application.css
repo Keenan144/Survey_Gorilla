@@ -28,38 +28,46 @@ h3 {
 
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 li {
-    float: left;
+  float: left;
 }
 
 .navbar .navbar_link:link {
-    display: block;
-    width: 120px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #2B7092;
-    text-align: center;
-    padding: 4px;
-    text-decoration: none;
-    text-transform: uppercase;
+  display: block;
+  width: 120px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #2B7092;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .navbar .navbar_link:hover {
-    background-color: #2AA560;
+  background-color: #2AA560;
 }
 
 .index_main_body{
+  text-align: left;
   position: absolute;
-  top: 150px;
-  left: 10px;
+  width:500px;
+  height:300px;
+  z-index:15;
+  top:30%;
+  left:45%;
+  margin:-100px 0 0 -150px;
+  border: 1px solid black;
+  border-radius: 25px;
   padding: 20px;
-  font-family: sans-serif;
+  background-color: #2B7092;
+  color: white;
 }
 
 .add_question{
@@ -67,17 +75,17 @@ li {
 
 }
 
- /*visited link */
- #surveytable .surveylinks {
-    color: #2B7092;
-  }
+/*visited link */
+#surveytable .surveylinks {
+  color: #2B7092;
+}
 #surveytable .surveylinks:visited {
-    color: orange;
+  color: orange;
 }
 
- /*mouse over link*/
+/*mouse over link*/
 #surveytable .surveylinks:hover {
-    color: #2AA560;
+  color: #2AA560;
 }
 
 

@@ -11,9 +11,11 @@ h3 {
 }
 .showsurvey{
   text-align: center;
-  -webkit-column-count: 2;
+  border: 1px ridge black;
+  margin: 100px;
+/*  -webkit-column-count: 2;
   -moz-column-count: 2;
-  -column-count: 3;
+  -column-count: 2;*/
 }
 
 .navbar {
@@ -71,7 +73,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: #2B7092;
+    color: #D58C21;
     text-decoration: none;
 }
 

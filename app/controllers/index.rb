@@ -7,12 +7,10 @@ end
 
 get "/" do
   # index
-  puts "GOING HOME YO"
+  erb :index
   if session_logged_in?
-    puts "USER IS LOGGED IN"
     erb :homepage
   else
-    puts "NOT LOGGED IN LOL"
     erb :index
   end
 end
@@ -27,33 +25,110 @@ post "/homepage" do
   erb :homepage
 end
 
+get "/surveys" do 
+  @survey = Survey.all
+
+  erb :surveys
+end
+
+
 get "/survey/new" do
   # new
   erb :new_survey
 end
 
-post "/survey" do
+
+
+post "/survey" do 
   # create
+  @survey = Survey.create(title: params[:title])
+  @id = @survey.id
+  p @id
+  redirect "/surveys"
 end
 
-get "survey/:id" do
+#get "survey/:id" do
   # show
+#  puts "Hello world"
+#  erb :single_survey
+#end
+get "/survey/:id" do
+  @survey = Survey.find(params[:id])
   erb :single_survey
 end
 
-get "survey/:id/edit" do
+
+post "/survey/:id/questions" do 
+  @survey = Survey.find(params[:id])
+  @question = @survey.questions.create(title: params[:title])
+
+  redirect "/survey/#{@survey.id}"
+end
+
+get "/survey/:s_id/questions/:id" do 
+  @survey = Survey.find(params[:s_id])
+  @question = Question.find(params[:id])
+  
+  erb :single_question
+end
+
+
+post "/survey/:s_id/questions/:q_id/response" do 
+  @survey = Survey.find(params[:s_id])
+  @question = Question.find(params[:q_id])
+  @resp = @question.responses.create(answer: params[:answer])
+
+  str = params[:s_id].to_s
+ # puts str
+  redirect "/survey/#{str}"
+end
+
+get "/survey/:s_id/questions/:q_id/response/:id" do
+  @survey = Survey.find(params[:s_id])
+  @question = Question.find(params[:q_id])
+  @response = Response.find(params[:id])
+
+
+  erb :single_question
+end
+# get "/questions" do 
+#   @question = Question.all
+#   erb :questions
+# end
+
+
+get "/survey/:id/edit" do 
   #edit
   erb :edit_survey
 end
 
-put "survey/:id" do
+put "/survey/:id" do 
   # update
 end
 
-delete "survey/:id" do
+delete "/survey/:id" do
   # delete
 end
 # -------------------------------------- #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # --------  login ------------ #
 
@@ -69,7 +144,7 @@ post "/login" do
   puts "printing pw: #{params[:password]}"
   session_authenticate params[:email], params[:password]
  if @user != nil #&& @user.authenticate(params[:password])
-      #session_set_current_user(@user)
+      # session_set_current_user(@user)
       #redirect to their profile page
       redirect('/')
     else

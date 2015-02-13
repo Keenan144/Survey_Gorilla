@@ -1,19 +1,16 @@
 <title>Welcome to Squirrel Monkey</title>
 
 <head>
-<div class="homepage">
-  <h1><strong>Create a Survey</strong></h1>
   <h3>Welcome <%= User.find(session_current_user_id).email%></h3>
-  <form action="/survey" method="post">
-
-
-
-  </form>
+<div class="createsurvey">
+  <h1><strong>Create a Survey</strong></h1>
+ <!--  <form action="/survey" method="post">
+  </form> -->
 
 
 </div>
 
-<div class="homepage">
+<div class="showsurvey">
   <h1>Find a Survey to Take</h1>
   <%allsurveys = Survey.all %>
     <% allsurveys.each do |survey| %>

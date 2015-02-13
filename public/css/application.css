@@ -2,9 +2,24 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.homepage {
+h1 {
   text-align: center;
 }
+
+h3 {
+  margin: auto;
+}
+.showsurvey{
+  text-align: center;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -column-count: 3;
+}
+
+.navbar {
+  background-color: #2B7092;
+}
+
 
 ul {
     list-style-type: none;
@@ -22,7 +37,7 @@ li {
     width: 120px;
     font-weight: bold;
     color: #FFFFFF;
-    background-color: #98bf21;
+    background-color: #2B7092;
     text-align: center;
     padding: 4px;
     text-decoration: none;
@@ -30,7 +45,7 @@ li {
 }
 
 .navbar a:hover, a:active {
-    background-color: #7A991A;
+    background-color: #2AA560;
 }
 
 .index_main_body{
@@ -44,19 +59,19 @@ li {
 
 
  a:link {
-    color: green;
+    color: #2AA560;
     text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-    color: maroon;
+    color: #E75F3B;
     text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-    color: red;
+    color: #2B7092;
     text-decoration: none;
 }
 

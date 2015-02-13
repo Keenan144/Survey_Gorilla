@@ -1,9 +1,28 @@
 # ---------- 7 restful routes ------------#
 
-get "/" do 
+get "/logout" do
+  session_logout
+  redirect ('/')
+end
+
+get "/" do
   # index
-  puts "HIIII"
   erb :index
+  if session_logged_in?
+    erb :homepage
+  else
+    erb :index
+  end
+end
+
+get "/homepage" do
+
+  erb :homepage
+end
+
+post "/homepage" do
+
+  erb :homepage
 end
 
 get "/surveys" do 
@@ -113,28 +132,31 @@ end
 
 # --------  login ------------ #
 
-get "/login" do 
+get "/login" do
   # go to login page
   erb :index
 end
 
 post "/login" do
-  # find user with that login 
-    @user = User.find_by(email: params[:email])
+  # find user with that login
+  @user = User.find_by(email: params[:email])
+  puts "printing username: #{params[:email]}"
+  puts "printing pw: #{params[:password]}"
+  session_authenticate params[:email], params[:password]
  if @user != nil #&& @user.authenticate(params[:password])
       # session_set_current_user(@user)
       #redirect to their profile page
-      redirect('/profile')
-  else
-  erb :login
- end
+      redirect('/')
+    else
+      #erb :login
+    end
 
-end
+  end
 
 # ---------------------------- #
 
 # --------  Register ------------ #
-get "/register" do 
+get "/register" do
   # go to register page
   erb :register
 end
@@ -143,8 +165,8 @@ post "/register" do
   # create a new user with the params
   @new_user = User.create(email: params[:email], password: params[:password])
   if @new_user   #.valid?
-      session_set_current_user(@new_user)
-      redirect('/profile')
+    session_set_current_user(@new_user)
+    redirect('/profile')
   else
     erb :index
   end

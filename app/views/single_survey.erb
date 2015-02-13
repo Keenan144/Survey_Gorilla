@@ -1,0 +1,22 @@
+<h2> Survey: <%= @survey.title %></h2>
+
+<% unless @survey.questions.blank? %>
+  <ul>
+    <% @survey.questions.each do |question| %>
+    <li>
+    <a href="/survey/<%=@survey.id%>/questions/<%= question.id %>"><%= question.title %></a>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="add_question">
+  <form action="/survey/<%= @survey.id %>/questions" method="post">
+    What is the question?
+    <br>
+    <input type="text" name="title">
+    <br>
+    <br>
+    <input type="submit" value="submit">
+  </form>
+</div>

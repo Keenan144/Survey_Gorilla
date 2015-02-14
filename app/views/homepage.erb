@@ -1,28 +1,10 @@
 <title>Welcome to Squirrel Monkey</title>
 
 <head>
-<div class="homepage">
-  <h1><strong>Create a Survey</strong></h1>
+  <div class="welcome">
   <h3>Welcome <%= User.find(session_current_user_id).email%></h3>
-  <form action="/survey" method="post">
+  <br>
+    To Create a new survey click <STRONG>Create New</STRONG> in the navigation bar. To view and take surveys click on <STRONG>Surveys</STRONG> in the navigation bar.</div>
 
 
 
-  </form>
-
-
-</div>
-
-<div class="homepage">
-  <h1>Find a Survey to Take</h1>
-  <%allsurveys = Survey.all %>
-    <% allsurveys.each do |survey| %>
-<p><a href="/survey/<%=survey.title%>"><%=survey.title%></p></a>
-    <%end%>
-
-
-</div>
-
-
-
-</head>

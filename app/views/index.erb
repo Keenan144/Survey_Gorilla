@@ -15,13 +15,15 @@
     <!-- ----------------------- -->
 
     <form action='/login' method="post">
+      <%= display_login_errors_if_any? %>
+      <br>
       Email: <input type="text" name="email" placeholder="keenan@keenan.com">
       <br><br>
       Password: <input type="password" name="password" placeholder="******">
       <br><br>
-      <input type="submit" value="Log in!">
+      <input type="submit" style="font-size: large;   color: light grey; background-color: #2AA560;" value=" Login! ">
     </form>
-    <br><br><br>
+    <br>
     <form action='/register' method="post">
       Enter Your Email: <input type="text" name="user_name" placeholder="User Name">
       <br><br>
@@ -29,10 +31,11 @@
       <br><br>
       What's your Name: <input type="text" name="name" placeholder="John Doe">
       <br><br>
-      <input type="submit" value="Register!">
-    </form> 
+<!--       <input type="button" value="Register!">
+ -->      <input type="submit" style="font-size: large;   color: light grey; background-color: #2AA560;" value=" Register! ">
 
-
+    </form>
+</div>
 
 
     <!-- <p><a href="/login"> EMAIL </a></p>

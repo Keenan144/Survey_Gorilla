@@ -15,10 +15,17 @@ h3 {
   width: 600px;
   text-align: center;
   border: 1px ridge black;
-  margin-left: 650px;
+  margin-left: 600px;
   -webkit-column-count: 2;
   -moz-column-count: 2;
   -column-count: 2;
+  z-index:15;
+  top:30%;
+  left:40%;
+  margin:-100px 0 0 -150px;
+  border: 3px solid #2AA560;
+  border-radius: 25px;
+  padding: 20px;
 }
 
 
@@ -58,7 +65,23 @@ li {
   text-align: left;
   position: absolute;
   width:500px;
-  height:300px;
+  height:350px;
+  z-index:15;
+  top:30%;
+  left:45%;
+  margin:-100px 0 0 -150px;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 20px;
+  background-color: #2B7092;
+  color: #D5D7DE;
+}
+
+.welcome{
+  text-align: left;
+  position: absolute;
+  width:250px;
+  height:200px;
   z-index:15;
   top:30%;
   left:45%;
@@ -87,6 +110,7 @@ li {
 #surveytable .surveylinks:hover {
   color: #2AA560;
 }
+
 
 
 
@@ -126,6 +150,28 @@ li {
 
 .errors {
   color:red;
+}
+
+.logo{
+  position:absolute;
+  right:0;
+  top:15;
+}
+
+.newSurvey {
+  text-align: left;
+  position: absolute;
+  width:250px;
+  height:100px;
+  z-index:15;
+  top:30%;
+  left:45%;
+  margin:-100px 0 0 -150px;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 20px;
+  background-color: #2B7092;
+  color: #D5D7DE;
 }
 
 
